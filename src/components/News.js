@@ -14,7 +14,7 @@ const News =(props)=>{
 
     const updateNews = async ()=>{
         const url =`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=62c2c30bc94745e69543902d012e19d4&page=${page}&pageSize=${props.pagesize}`;
-        setLoading(true)
+        setLoading(true);
         let data = await fetch(url);
         let parsedData = await data.json();
         setArticles(parsedData.articles);
@@ -23,9 +23,10 @@ const News =(props)=>{
     }
     useEffect(()=>{
             updateNews();
-    })
+            //eslint-disable-next-line
+    },[])
     const fetchMoreData = async () => {
-        const url =`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=62c2c30bc94745e69543902d012e19d4&page=${page}&pageSize=${props.pagesize}`;
+        const url =`https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=62c2c30bc94745e69543902d012e19d4&page=${page+1}&pageSize=${props.pagesize}`;
         setPage(page+1)
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -35,8 +36,8 @@ const News =(props)=>{
     const cat = props.category;
     return (
         <>
-      <div className='container my-4'>
-        <h1 className='text-center'>NEWS MONKEY - HEADLINES</h1>
+      <div className='container'>
+        <h1 className='text-center my-90'>Insight Ink - HEADLINES</h1>
             <h2 className='text-center'>{cat.toUpperCase()}</h2>
         {loading && <Spinner/>}
         <InfiniteScroll

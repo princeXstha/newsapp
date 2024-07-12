@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 const Navbar = ()=>{
     return (
-      <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div style={{marginBottom:'70px'}}>
+            <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
-    <Link className="navbar-brand" to="/">News Monkey</Link>
+    <Link className="navbar-brand" to="/">Insight Ink</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
